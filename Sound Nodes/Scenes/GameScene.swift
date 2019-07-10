@@ -121,7 +121,6 @@ class GameScene: SKScene, UIGestureRecognizerDelegate, NodeConsumer {
 
             ball.run(.move(to: neighbour.position, duration: 1.5), completion: {
                 ball.removeFromParent()
-                //neighbour.run(.scale(to: neighbour.xScale + 0.1, duration: 1))
             })
         }
     }
@@ -142,6 +141,7 @@ class GameScene: SKScene, UIGestureRecognizerDelegate, NodeConsumer {
             nodes.append(newNode)
             graph.nodeList.append(graphNode)
             newNode.reference = graphNode
+            self.impact.impactOccurred()
         }
     }
     
@@ -177,26 +177,22 @@ class GameScene: SKScene, UIGestureRecognizerDelegate, NodeConsumer {
                     self.addChild(edgeGraph)
                     edges.append(edgeGraph)
                     notification.notificationOccurred(.success)
-                    print("1")
                 } else if intersectedNode != nil && pathBeginning.reference.isConnected(to: intersectedNode!.reference) && intersectedNode!.reference.id != pathBeginning.reference.id {
                     let edgeReference = pathBeginning.reference.getEdge(to: intersectedNode!.reference)!
                     let edgeGraph = edges.filter( { $0.reference.id == edgeReference.id } ).first!
                     edgeGraph.removeFromParent()
                     pathBeginning.reference.removeEdge(to: intersectedNode!.reference)
                     intersectedNode!.reference.removeEdge(to: pathBeginning.reference)
-                    print("2")
                 } else {
                     if pathBeginning.reference.neighbours.count > 0 {
                         let codeEdges = pathBeginning.reference.neighbours
                         let visualEdges = edges.filter( { codeEdges.contains($0.reference) } )
                         visualEdges.forEach({ $0.removeFromParent() })
                         codeEdges.forEach({ $0.autoDelete() })
-                        print("3")
                     } else {
                         pathBeginning.removeFromParent()
                         nodes.remove(at: nodes.firstIndex(where: {$0.reference.id == pathBeginning.reference.id } )!)
                         graph.nodeList.remove(at: graph.nodeList.firstIndex(where: {$0.id == pathBeginning.reference.id})!)
-                        print("4")
                     }
                 }
             } else {
@@ -207,7 +203,6 @@ class GameScene: SKScene, UIGestureRecognizerDelegate, NodeConsumer {
                 let temporaryEdgeFix = self.temporaryEdge
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.534237, execute: { temporaryEdgeFix!.removeFromParent() })
                 notification.notificationOccurred(.error)
-                print("5")
             }
         }
     }

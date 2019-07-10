@@ -10,6 +10,9 @@
 		7A915BE222C66C0C00DDCBE7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A915BE122C66C0C00DDCBE7 /* Model.swift */; };
 		7A915BE522C6704E00DDCBE7 /* UpdateStatusObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A915BE422C6704E00DDCBE7 /* UpdateStatusObserver.swift */; };
 		7A96EB0822C6C34700BEEAEE /* KenVector Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A96EB0722C6C34700BEEAEE /* KenVector Bold.ttf */; };
+		7AC6280922C915AC00A254AA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6280822C915AC00A254AA /* MenuViewController.swift */; };
+		7AC6280C22C9199500A254AA /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6280B22C9199500A254AA /* MenuTableViewCell.swift */; };
+		7AC6280E22C926C000A254AA /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6280D22C926C000A254AA /* NSAttributedStringExtensions.swift */; };
 		7AD3BEB822C2509700FC49A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3BEB722C2509700FC49A2 /* AppDelegate.swift */; };
 		7AD3BEBE22C2509700FC49A2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3BEBD22C2509700FC49A2 /* GameScene.swift */; };
 		7AD3BEC022C2509700FC49A2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3BEBF22C2509700FC49A2 /* GameViewController.swift */; };
@@ -25,7 +28,10 @@
 		7A915BE122C66C0C00DDCBE7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7A915BE422C6704E00DDCBE7 /* UpdateStatusObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStatusObserver.swift; sourceTree = "<group>"; };
 		7A96EB0722C6C34700BEEAEE /* KenVector Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KenVector Bold.ttf"; sourceTree = "<group>"; };
-		7AD3BEB422C2509700FC49A2 /* Sound Nodes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sound Nodes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AC6280822C915AC00A254AA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		7AC6280B22C9199500A254AA /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		7AC6280D22C926C000A254AA /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
+		7AD3BEB422C2509700FC49A2 /* Graph Algorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Graph Algorithms.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AD3BEB722C2509700FC49A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AD3BEBD22C2509700FC49A2 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		7AD3BEBF22C2509700FC49A2 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +79,16 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		7AC6280A22C9195C00A254AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7AD3BEC122C2509700FC49A2 /* Main.storyboard */,
+				7AD3BEC622C2509900FC49A2 /* LaunchScreen.storyboard */,
+				7AC6280B22C9199500A254AA /* MenuTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7AD3BEAB22C2509700FC49A2 = {
 			isa = PBXGroup;
 			children = (
@@ -84,7 +100,7 @@
 		7AD3BEB522C2509700FC49A2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7AD3BEB422C2509700FC49A2 /* Sound Nodes.app */,
+				7AD3BEB422C2509700FC49A2 /* Graph Algorithms.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,6 +112,7 @@
 				7AD3BEC922C2509900FC49A2 /* Info.plist */,
 				7AD3BED422C2F3C700FC49A2 /* Assets */,
 				7AD3BED222C2F3B200FC49A2 /* Scenes */,
+				7AC6280A22C9195C00A254AA /* View */,
 				7AD3BED122C2F39F00FC49A2 /* ViewController */,
 				7AD3BEDA22C4689300FC49A2 /* Classes */,
 				7A915BE022C66C0100DDCBE7 /* Model */,
@@ -109,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				7AD3BEBF22C2509700FC49A2 /* GameViewController.swift */,
+				7AC6280822C915AC00A254AA /* MenuViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -125,8 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				7AD3BEC422C2509900FC49A2 /* Assets.xcassets */,
-				7AD3BEC122C2509700FC49A2 /* Main.storyboard */,
-				7AD3BEC622C2509900FC49A2 /* LaunchScreen.storyboard */,
 				7A96EB0622C6C2AF00BEEAEE /* Fonts */,
 			);
 			path = Assets;
@@ -137,6 +153,7 @@
 			children = (
 				7AD3BED522C3CAF200FC49A2 /* CGPointExtensions.swift */,
 				7AD3BED722C463A300FC49A2 /* UIColorExtensions.swift */,
+				7AC6280D22C926C000A254AA /* NSAttributedStringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -152,9 +169,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7AD3BEB322C2509700FC49A2 /* Sound Nodes */ = {
+		7AD3BEB322C2509700FC49A2 /* Graph Algorithms */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7AD3BECC22C2509900FC49A2 /* Build configuration list for PBXNativeTarget "Sound Nodes" */;
+			buildConfigurationList = 7AD3BECC22C2509900FC49A2 /* Build configuration list for PBXNativeTarget "Graph Algorithms" */;
 			buildPhases = (
 				7AD3BEB022C2509700FC49A2 /* Sources */,
 				7AD3BEB122C2509700FC49A2 /* Frameworks */,
@@ -164,9 +181,9 @@
 			);
 			dependencies = (
 			);
-			name = "Sound Nodes";
+			name = "Graph Algorithms";
 			productName = "Sound Nodes";
-			productReference = 7AD3BEB422C2509700FC49A2 /* Sound Nodes.app */;
+			productReference = 7AD3BEB422C2509700FC49A2 /* Graph Algorithms.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -184,7 +201,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7AD3BEAF22C2509700FC49A2 /* Build configuration list for PBXProject "Sound Nodes" */;
+			buildConfigurationList = 7AD3BEAF22C2509700FC49A2 /* Build configuration list for PBXProject "Graph Algorithms" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -197,7 +214,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7AD3BEB322C2509700FC49A2 /* Sound Nodes */,
+				7AD3BEB322C2509700FC49A2 /* Graph Algorithms */,
 			);
 		};
 /* End PBXProject section */
@@ -225,9 +242,12 @@
 				7AD3BEBE22C2509700FC49A2 /* GameScene.swift in Sources */,
 				7AD3BEC022C2509700FC49A2 /* GameViewController.swift in Sources */,
 				7AD3BED622C3CAF200FC49A2 /* CGPointExtensions.swift in Sources */,
+				7AC6280C22C9199500A254AA /* MenuTableViewCell.swift in Sources */,
+				7AC6280922C915AC00A254AA /* MenuViewController.swift in Sources */,
 				7A915BE522C6704E00DDCBE7 /* UpdateStatusObserver.swift in Sources */,
 				7AD3BED822C463A300FC49A2 /* UIColorExtensions.swift in Sources */,
 				7AD3BED022C250C400FC49A2 /* Classes.swift in Sources */,
+				7AC6280E22C926C000A254AA /* NSAttributedStringExtensions.swift in Sources */,
 				7AD3BEB822C2509700FC49A2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,7 +401,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "br.pucpr.Graph-Algorithms";
+				PRODUCT_BUNDLE_IDENTIFIER = br.pucpr.graphalgorithms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -399,7 +419,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "br.pucpr.Graph-Algorithms";
+				PRODUCT_BUNDLE_IDENTIFIER = br.pucpr.graphalgorithms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -409,7 +429,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7AD3BEAF22C2509700FC49A2 /* Build configuration list for PBXProject "Sound Nodes" */ = {
+		7AD3BEAF22C2509700FC49A2 /* Build configuration list for PBXProject "Graph Algorithms" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7AD3BECA22C2509900FC49A2 /* Debug */,
@@ -418,7 +438,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7AD3BECC22C2509900FC49A2 /* Build configuration list for PBXNativeTarget "Sound Nodes" */ = {
+		7AD3BECC22C2509900FC49A2 /* Build configuration list for PBXNativeTarget "Graph Algorithms" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7AD3BECD22C2509900FC49A2 /* Debug */,

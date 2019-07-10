@@ -288,10 +288,22 @@ class NodeGraph: SKShapeNode {
     
     //EFEITO PULSANTE DA AURA DE CADA NODO
     func scaleEffect() {
-        self.arc.run(.scale(to: self.arc.xScale + 0.1, duration: 1), completion: { self.arc.run(.scale(to: self.arc.xScale - 0.1, duration: 1)) } )
+        let size = self.arc.xScale
+        self.arc.alpha = 0
+        self.arc.run(.fadeAlpha(to: 0.6, duration: 1), completion: { self.arc.run(.fadeAlpha(to: 0.0, duration: 1)) } )
+        self.arc.run(.scale(to: self.arc.xScale + 0.1, duration: 1), completion: { self.arc.run(.scale(to: size, duration: 1)) } )
+        
+        //FADE EFFECT
         Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (Timer) in
-            self.arc.run(.scale(to: self.arc.xScale + 0.1, duration: 1), completion: { self.arc.run(.scale(to: self.arc.xScale - 0.1, duration: 1)) } )
+            self.arc.run(.fadeAlpha(to: 0.6, duration: 1), completion: { self.arc.run(.fadeAlpha(to: 0.0, duration: 1)) } )
         }
+        
+        
+        //SCALE EFFECT
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (Timer) in
+            self.arc.run(.scale(to: self.arc.xScale + 0.1, duration: 1), completion: { self.arc.run(.scale(to: size, duration: 1)) } )
+        }
+        
     }
     
     //NÃO USADO
