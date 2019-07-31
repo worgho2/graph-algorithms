@@ -247,11 +247,6 @@ class GraphAlgorithms {
     }
 }
 
-//PROTOCOLO PARA CONEXÃO ENTRE CODE-LAYER E GRAPH-LAYER
-protocol NodeConsumer {
-    func updateNodeProperties(node: Node)
-}
-
 //NODEGRAPH (GRAPH-LAYER)
 class NodeGraph: SKShapeNode {
     var reference: Node

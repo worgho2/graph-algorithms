@@ -1,35 +1,19 @@
-//
-//  GameScene.swift
-//  Sound Nodes
-//
-//  Created by Otávio Baziewicz Filho on 25/06/19.
-//  Copyright © 2019 Otávio Baziewicz Filho. All rights reserved.
-//
-
 import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene, UIGestureRecognizerDelegate, NodeConsumer {
    
-    var graph: Graph = Graph()                              //GRAFO
-    var nodes = [NodeGraph]() {                             //NODOS
-        didSet {
-            if nodes.count == 0 {
-                Model.instance.graphIsEmpty = true
-            } else {
-                Model.instance.graphIsEmpty = false
-            }
-        }
+    var graph: Graph = Graph()
+    var nodes = [NodeGraph]() {
+        didSet { Model.instance.graphIsEmpty = nodes.isEmpty ? true : false }
     }
-    var edges = [EdgeGraph]() {                             //ARESTAS
-        didSet {
-            Model.instance.updateStatusObservers.forEach( { $0.notifyObservers() } )
-        }
+    var edges = [EdgeGraph]() {
+        didSet { Model.instance.updateStatusObservers.forEach( { $0.notifyObservers() } ) }
     }
-        
+    
     var temporaryEdge: SKShapeNode!                         //ARESTAS TEMPORARIAS
     var permanentEdge: SKShapeNode!                         //ARESTA PERMANENTE
-    var pathBeginning = NodeGraph(reference: Node())        //NODO INICIAL QUANDO UMA ARESTA É INICIDA
+    var pathBeginning = NodeGraph(reference: Node())        //NODO INICIAL QUANDO UMA ARESTA É INICIADA
     
     var creatingEdge: Bool = false                          //CONTROLE PARA CRIAÇÃO DE ARESTA
     var intersect: Bool = true                              //IDENTIFICAÇÃO DE INTERSECÇÃO PARA CRIAÇÃO DE ARESTA
@@ -40,12 +24,7 @@ class GameScene: SKScene, UIGestureRecognizerDelegate, NodeConsumer {
     let selection = UISelectionFeedbackGenerator()          //FEEDBACK TÁTIL DE SELEÇÃO
     
     override func didMove(to view: SKView) {
-        layoutScene()
-    }
-    
-    //CARREGAR LAYAOUT
-    func layoutScene() {
-        backgroundColor = #colorLiteral(red: 0.09803921569, green: 0.09019607843, blue: 0.0862745098, alpha: 1)
+        backgroundColor = UIColor.MyPallete.black
     }
     
     //CRIAÇÃO DO CAMINHO DA ARESTA
@@ -61,8 +40,8 @@ class GameScene: SKScene, UIGestureRecognizerDelegate, NodeConsumer {
     func createTemporaryEdge(beginning: CGPoint, end: CGPoint) {
         let path = self.createPath(beginning: beginning, end: end)
         temporaryEdge = SKShapeNode(path: path)
-        temporaryEdge.fillColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        temporaryEdge.strokeColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        temporaryEdge.fillColor = UIColor.MyPallete.gray
+        temporaryEdge.strokeColor = UIColor.MyPallete.gray
         temporaryEdge.zPosition = -1
         self.addChild(temporaryEdge)
     }
@@ -70,7 +49,6 @@ class GameScene: SKScene, UIGestureRecognizerDelegate, NodeConsumer {
     //EXECUTAR ETAPA DO ALGORITMO
     func runGraphAlgorithm() {
         Model.instance.stepIsAvaliable = (GraphAlgorithms.stepDSATUR(inGraph: self.graph, nodeConsumer: self)) ? true : false
-        
         Model.instance.stepIsAvaliable = (GraphAlgorithms.canGetNextNodeDSATUR) ? true : false
         Model.instance.algorithmIsRunnig = Model.instance.stepIsAvaliable
     }
@@ -91,7 +69,7 @@ class GameScene: SKScene, UIGestureRecognizerDelegate, NodeConsumer {
     //PREPARAR PARA EXECUTAR ALGORITMO NOVAMENTE
     func reRunGraphAlgorithm() {
         Model.instance.prepareToReRun()
-        nodes.forEach( { $0.ball.fillColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)} )
+        nodes.forEach( { $0.ball.fillColor = UIColor.MyPallete.white } )
         graph.prepareToReRun()
     }
     
@@ -113,8 +91,8 @@ class GameScene: SKScene, UIGestureRecognizerDelegate, NodeConsumer {
         
         for neighbour in uncoloredNeighbours {
             let ball: SKShapeNode = SKShapeNode(circleOfRadius: 5)
-            ball.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            ball.strokeColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            ball.fillColor = UIColor.MyPallete.white
+            ball.strokeColor = UIColor.MyPallete.white
             ball.zPosition = -1
             self.addChild(ball)
             ball.position = nodes[nodeIndex].position

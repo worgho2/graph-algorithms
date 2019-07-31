@@ -1,5 +1,6 @@
 class Model {
     static let instance = Model()
+    private init() { }
     
     var algorithmIsRunnig: Bool = false {
         didSet {
@@ -32,5 +33,5 @@ class Model {
     
     var updateStatusObservers: [UpdateStatusObserver] = []
     
-    private init() { }
+    
 }
